@@ -1,0 +1,76 @@
+<main id="main-content">
+  <div class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Questions, corrections, reader experiences — we read everything and aim to respond within 48 hours.</p>
+    </div>
+  </div>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr;gap:3rem;max-width:700px;">
+
+        <div class="prose">
+          <h2>Get in Touch</h2>
+          <p>We welcome:</p>
+          <ul>
+            <li>Reader experiences from travellers who have sailed with any of our ranked operators</li>
+            <li>Factual corrections with supporting documentation</li>
+            <li>Suggestions for operators not yet included in our rankings</li>
+            <li>General questions about planning a Falklands, South Georgia &amp; Antarctica cruise</li>
+          </ul>
+          <p>You can also email us directly at <a href="mailto:contact@falklands-south-georgia-antarctica-cruise.com">contact@falklands-south-georgia-antarctica-cruise.com</a>.</p>
+          <p>We read all messages and aim to respond within 48 hours. Corrections are reviewed within 5 business days.</p>
+        </div>
+
+        <form
+          name="contact"
+          method="POST"
+          action="#"
+          style="display:flex;flex-direction:column;gap:1.25rem;"
+          aria-label="Contact form"
+        >
+          <div>
+            <label for="contact-name" style="display:block;font-weight:600;font-size:.875rem;margin-bottom:.4rem;color:var(--navy);">Your Name</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              required
+              placeholder="Jane Smith"
+              style="width:100%;padding:.65rem .9rem;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font-body);font-size:.95rem;color:var(--text);background:var(--white);outline:none;transition:border-color var(--transition);"
+            >
+          </div>
+          <div>
+            <label for="contact-email" style="display:block;font-weight:600;font-size:.875rem;margin-bottom:.4rem;color:var(--navy);">Email Address</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              required
+              placeholder="jane@example.com"
+              style="width:100%;padding:.65rem .9rem;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font-body);font-size:.95rem;color:var(--text);background:var(--white);outline:none;transition:border-color var(--transition);"
+            >
+          </div>
+          <div>
+            <label for="contact-message" style="display:block;font-weight:600;font-size:.875rem;margin-bottom:.4rem;color:var(--navy);">Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              required
+              rows="6"
+              placeholder="Tell us about your experience, correction, or question..."
+              style="width:100%;padding:.65rem .9rem;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font-body);font-size:.95rem;color:var(--text);background:var(--white);resize:vertical;outline:none;transition:border-color var(--transition);"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="align-self:flex-start;"
+          >Send Message</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+</main>

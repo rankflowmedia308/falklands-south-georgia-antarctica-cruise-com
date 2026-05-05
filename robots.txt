@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://falklands-south-georgia-antarctica-cruise.com/sitemap.xml

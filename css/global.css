@@ -1,0 +1,421 @@
+/* ============================================================
+   global.css — reset, typography, layout, header, footer
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap');
+
+/* ---- Variables -------------------------------------------- */
+:root {
+  --navy:        #0B1F3A;
+  --navy-mid:    #162d52;
+  --navy-light:  #1e3d6e;
+  --teal:        #12A89D;
+  --teal-light:  #16c4b8;
+  --gold:        #D4A040;
+  --gold-light:  #f0c060;
+  --ice:         #F4F7FB;
+  --ice-mid:     #e8edf5;
+  --text:        #1a2535;
+  --text-muted:  #5a6a80;
+  --border:      #d0dae8;
+  --white:       #ffffff;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --max-width: 900px;
+  --radius:    6px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 4px rgba(11,31,58,.08);
+  --shadow:    0 4px 16px rgba(11,31,58,.12);
+  --shadow-lg: 0 8px 32px rgba(11,31,58,.16);
+
+  --transition: 200ms ease;
+}
+
+/* ---- Reset ------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--ice);
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: var(--teal); text-decoration: none; }
+a:hover { color: var(--teal-light); }
+ul { list-style: none; }
+
+/* ---- Typography -------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
+h4 { font-size: 1.1rem; }
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 600; }
+
+/* ---- Layout ----------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section--alt {
+  background: var(--white);
+}
+
+.section--dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--white);
+}
+
+/* ---- Utilities -------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: .75rem;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  max-width: 64ch;
+  margin-bottom: 2.5rem;
+}
+
+/* ---- Buttons ---------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .6rem 1.4rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+}
+.btn-primary:hover {
+  background: var(--teal-light);
+  border-color: var(--teal-light);
+  color: var(--white);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.btn-outline:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255,255,255,.5);
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,.1);
+  border-color: var(--white);
+  color: var(--white);
+}
+
+/* ---- Header ----------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11,31,58,.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.site-header .container {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-logo__img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.site-logo__text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+
+.site-logo__sub {
+  display: block;
+  font-size: .62rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  margin-left: auto;
+}
+
+.site-nav a {
+  padding: .4rem .75rem;
+  font-size: .85rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.75);
+  border-radius: var(--radius);
+  transition: color var(--transition), background var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--white);
+  background: rgba(255,255,255,.08);
+}
+
+.site-nav a.active {
+  color: var(--teal-light);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
+  margin-left: auto;
+  color: var(--white);
+}
+
+.nav-toggle svg { display: block; }
+
+@media (max-width: 767px) {
+  .nav-toggle { display: flex; align-items: center; }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,.08);
+    flex-direction: column;
+    align-items: stretch;
+    padding: .75rem 1rem;
+    gap: .25rem;
+  }
+
+  .site-nav.is-open { display: flex; }
+
+  .site-nav a {
+    padding: .65rem .75rem;
+    font-size: .95rem;
+  }
+}
+
+/* ---- Footer ----------------------------------------------- */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.7);
+  padding: 3rem 0 1.5rem;
+  font-size: .875rem;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.site-footer__brand .site-logo__text { color: var(--white); }
+.site-footer__brand p { margin-top: .75rem; line-height: 1.6; }
+
+.site-footer__col h4 {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+
+.site-footer__col ul { display: flex; flex-direction: column; gap: .35rem; }
+.site-footer__col a { color: rgba(255,255,255,.6); }
+.site-footer__col a:hover { color: var(--teal-light); }
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .8rem;
+  color: rgba(255,255,255,.4);
+}
+
+/* ---- Page header (EEAT pages) ----------------------------- */
+.page-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: var(--white);
+  padding: 3.5rem 0 3rem;
+}
+
+.page-header h1 {
+  color: var(--white);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin-bottom: .75rem;
+}
+
+.page-header p {
+  color: rgba(255,255,255,.7);
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* ---- Prose (EEAT page body) ------------------------------- */
+.prose {
+  max-width: 68ch;
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: .75rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--ice-mid);
+}
+
+.prose h3 {
+  margin-top: 1.75rem;
+  margin-bottom: .5rem;
+}
+
+.prose p { color: var(--text); }
+.prose li { margin-bottom: .3rem; color: var(--text); }
+.prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: .9rem;
+}
+
+.prose table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: .6rem .9rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.prose table td {
+  padding: .55rem .9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.prose table tr:nth-child(even) td { background: var(--ice); }
+
+/* ---- Divider ---------------------------------------------- */
+.divider {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
